@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPER_DIR="$HOME/Pictures/wallpapers/walls"
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
 
 # List all files in the wallpaper directory
 FILES=$(ls "$WALLPAPER_DIR")
