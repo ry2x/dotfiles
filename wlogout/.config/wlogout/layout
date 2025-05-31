@@ -1,36 +1,36 @@
 {
+    "text": "Lock",
     "label" : "lock",
-    "action" : "hyprlock",
-    "text" : "Lock",
+    "action" : "playerctl --all-players pause && pidof hyprlock || hyprlock",
     "keybind" : "l"
 }
 {
-    "label" : "reboot",
-    "action" : "systemctl reboot",
-    "text" : "Reboot",
-    "keybind" : "r"
-}
-{
+    "text": "Hibernate",
     "label" : "hibernate",
-    "action" : "systemctl hibernate",
-    "text" : "Hibernate",
+    "action" : "loginctl hibernate",
     "keybind" : "h"
 }
 {
-    "label" : "shutdown",
-    "action" : "systemctl poweroff",
-    "text" : "Shutdown",
-    "keybind" : "s"
-}
-{
+    "text": "Logout",
     "label" : "logout",
-    "action" : "hyprctl dispatch exit 0",
-    "text" : "Logout",
+    "action" : "loginctl terminate-user $USER",
     "keybind" : "e"
 }
 {
+    "text": "Shutdown",
+    "label" : "shutdown",
+    "action" : "loginctl poweroff",
+    "keybind" : "s"
+}
+{
+    "text": "Suspend",
     "label" : "suspend",
-    "action" : "systemctl suspend",
-    "text" : "Suspend",
+    "action" : "loginctl suspend",
     "keybind" : "u"
+}
+{
+    "text": "Reboot",
+    "label" : "reboot",
+    "action" : "loginctl reboot",
+    "keybind" : "r"
 }
