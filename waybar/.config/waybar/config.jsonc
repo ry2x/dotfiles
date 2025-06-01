@@ -226,11 +226,11 @@
 
   "custom/pacman-updates": {
     "format": "   {}",
-    "exec": "pacman -Qu | wc -l",
-    "on-click": "foot -e --title='pacman -Syu'  ~/.config/hypr/Scripts/pacman.sh",
-    "on-click-right": "foot -e --title='pacman -Sy'  ~/.config/hypr/Scripts/pacman-sync.sh",
-    "tooltip": false,
-    "interval": 60
+    "exec": "yay -Qu | wc -l",
+    "on-click": "kitty -e ~/.config/hypr/Scripts/pacman_u.sh",
+    "tooltip": true,
+    "tooltip-format": "Updates available: {}\nClick to open update manager",
+    "interval": 600
   },
 
   "custom/nvidia-temp": {
