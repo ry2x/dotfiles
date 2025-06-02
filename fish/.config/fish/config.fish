@@ -151,6 +151,13 @@ fish_add_path $PNPM_HOME
 fish_add_path $HOME/.fnm
 eval (fnm env)
 
+# user
+set -gx fish_user_paths \
+    /home/ry2x/.cargo/bin \
+    /home/ry2x/.local/share/pnpm \
+    /home/ry2x/.bun/bin \
+    /usr/local/bin \
+    /home/ry2x/.local/bin \
+    /home/ry2x/.local/share/applications \
+
 zoxide init fish | source
-# Created by `pipx` on 2025-05-16 23:01:35
-set PATH $PATH /home/mh/.local/bin
