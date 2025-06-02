@@ -6,7 +6,7 @@
   "workbench.startupEditor": "newUntitledFile",
   "editor.cursorStyle": "block",
   "workbench.iconTheme": "material-icon-theme",
-  "editor.fontFamily": "Fira Code",
+  "editor.fontFamily": "Firple",
   "editor.codeActionsOnSave": null,
   "highlight.configuration.colors": [
     {
@@ -678,5 +678,6 @@
       ]
     }
   },
-  "workbench.colorTheme": "GitHub Dark Colorblind (Beta)"
+  "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
+  "terminal.integrated.defaultProfile.linux": "fish"
 }

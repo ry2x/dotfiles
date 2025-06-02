@@ -120,8 +120,8 @@
   "clock": {
     /*"timezone": "America/x",*/
     "interval": 1,
-    "tooltip-format": "<big>{:%Y %B, %d | %A}</big>\n\n<tt><small>{calendar}</small></tt>",
-    "format": "<span font='Fira Code SemiBold 9.5'>{:%a %b %d  %r}</span>"
+    "tooltip-format": "<big>{:%Y年 %m月 %d日\n%A}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "<span font='Fira Code SemiBold 9.5'>{:%y/%m/%d %a %R}</span>"
   },
 
   "custom/applications": {
@@ -130,10 +130,10 @@
     "on-click": "pkill -x wofi || wofi -I -H 500 -W 500 --show drun"
   },
 
+  // https://man.archlinux.org/man/extra/waybar/waybar-cpu.5.en
   "cpu": {
     "format": "<span font='Font Awesome 6 Free 10'>  </span>{usage}%",
-    "interval": 3,
-    "tooltip-format": "{usage{n}}"
+    "interval": 3
   },
 
   "memory": {
@@ -170,7 +170,7 @@
 
   "power-profiles-daemon": {
     "format": " {icon}",
-    "tooltip-format": "{profile}\nDriver: {driver}",
+    "tooltip-format": "Mode: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
       "default": "󰓅",
