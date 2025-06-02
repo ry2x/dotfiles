@@ -1,3 +1,5 @@
+#!/bin/bash
+
 eth0_state=$(nmcli device show eth0 | awk -F': +' '/GENERAL.STATE/ {print $2}')
 
 if [[ "$eth0_state" == '100 (connected)' ]]; then

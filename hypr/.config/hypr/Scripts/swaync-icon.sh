@@ -1,3 +1,5 @@
+#!/bin/bash
+
 swayncNoti=$(swaync-client --count)
 swayncDnd=$(swaync-client --get-dnd)
 

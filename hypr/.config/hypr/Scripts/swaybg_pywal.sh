@@ -1,3 +1,5 @@
+#!/bin/bash
+
 wallpaper_path="$1"
 
 if [[ -f "$wallpaper_path" ]]; then
