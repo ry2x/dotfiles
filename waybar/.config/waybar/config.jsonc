@@ -4,7 +4,7 @@
   //"layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
   "reload_style_on_change": true,
-  "height": 0, // Waybar height (to be removed for auto height)
+  "height": 25, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "spacing": -2, // Gaps between modules (4px)
   "modules-left": [
@@ -23,7 +23,7 @@
     "memory",
     "custom/seperator",
     "network",
-    "custom/bluetooth-status",
+    //"custom/bluetooth-status",
     "pulseaudio",
     "battery",
     "custom/seperator",
@@ -32,9 +32,9 @@
     "group/expand"
   ],
   "hyprland/workspaces": {
-    "disable-scroll": true,
+    "disable-scroll": false,
     "all-outputs": true,
-    "warp-on-scroll": false,
+    "warp-on-scroll": true,
     "format": "{name}",
     "format-icons": {
       "1": "",
@@ -114,7 +114,7 @@
   },
   "tray": {
     "icon-size": 18.0,
-    "spacing": 5
+    "spacing": 4
   },
 
   "clock": {
@@ -138,7 +138,7 @@
 
   "memory": {
     //{used}GiB
-    "format": "<span font='Font Awesome 6 Free 10'>  </span>{used}GB",
+    "format": "<span font='Font Awesome 6 Free 10'>  </span>{percentage}%",
     "interval": 3,
     "tooltip-format": " RAM {percentage}%\nAvail: {avail}GB of {total}GB\nSWAP: {swapUsed}GB of {swapTotal}GB"
   },
