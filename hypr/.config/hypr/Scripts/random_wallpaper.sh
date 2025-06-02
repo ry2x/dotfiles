@@ -14,6 +14,3 @@ swww img "$WALLPAPER" --transition-type grow --transition-duration 1.0
 
 # 色スキームを再生成
 wal -i "$WALLPAPER"
-
-# Waybar をリスタート
-killall waybar && waybar &
