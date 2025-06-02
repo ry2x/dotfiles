@@ -99,7 +99,7 @@ button:hover {
 
 #workspaces button {
   text-shadow: 0px 0px 2px alpha(@color6, 0.2);
-  padding: 0 5px;
+  padding: 1px 0px;
   color: @color15;
 }
 
@@ -176,7 +176,8 @@ button:hover {
 #memory:hover,
 #pulseaudio:hover,
 #battery:hover,
-#temperature:hover {
+#temperature:hover,
+#custom-bluetooth-status:hover {
   border-radius: 6px;
   background-color: @foreground;
   color: @background;
