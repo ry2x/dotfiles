@@ -1,32 +1,66 @@
 #!/bin/bash
 
-# Get list of upgradable packages and let user select multiple with fzf
-selected_pkgs=$(yay -Qu | awk '{print $1}' | fzf -m --prompt="️⚙️ Select packages to upgrade: ex <package_name> <package_name> > ")
+# Get list of upgradable packages
+# Add an "ALL" option to the list for upgrading all packages
+upgradable_pkgs=$(yay -Qu | awk '{print $1}')
+fzf_options="(ALL) Upgrade all packages\n$upgradable_pkgs"
+
+# Let user select multiple with fzf, or choose to upgrade all
+selected_option=$(echo -e "$fzf_options" | fzf -m --prompt="️⚙️ Select packages to upgrade (or ALL): ex <package_name> <package_name> > ")
 
 # Trim leading/trailing whitespace (in case)
-selected_pkgs=$(echo "$selected_pkgs" | xargs)
+selected_option=$(echo "$selected_option" | xargs)
 
-if [ -z "$selected_pkgs" ]; then
+if [ -z "$selected_option" ]; then
   echo "❌ No packages selected. Exiting."
   exit 0
 fi
 
-echo "Upgrading the following packages:"
-echo "$selected_pkgs"
+if [[ "$selected_option" == *"(ALL) Upgrade all packages"* ]]; then
+  echo "Upgrading all available packages."
+  # Run yay upgrade all and capture output and exit status
+  output=$(yay -Syu --noconfirm 2>&1)
+  status=$?
 
-# Run yay upgrade and capture output and exit status
-output=$(yay -S --noconfirm $selected_pkgs 2>&1)
-status=$?
-
-echo
-if [ $status -eq 0 ]; then
-  echo "✅ Successfully upgraded packages:"
-  echo "$selected_pkgs"
-else
-  echo "❌ Error occurred during upgrade!"
-  echo "Error details:"
-  echo "$output"
   echo
-  echo "Partial upgrade output:"
+  if [ $status -eq 0 ]; then
+    echo "✅ Successfully upgraded all packages."
+  else
+    echo "❌ Error occurred during upgrade!"
+    echo "Error details:"
+    echo "$output"
+  fi
+else
+  # Extract only the package names if the "ALL" option was not selected
+  selected_pkgs=$(echo "$selected_option" | grep -v "(ALL) Upgrade all packages")
+
+  if [ -z "$selected_pkgs" ]; then
+    echo "❌ No packages selected. Exiting."
+    exit 0
+  fi
+
+  echo "Upgrading the following packages:"
   echo "$selected_pkgs"
+
+  # Run yay upgrade and capture output and exit status
+  output=$(yay -S --noconfirm $selected_pkgs 2>&1)
+  status=$?
+
+  echo
+  if [ $status -eq 0 ]; then
+    echo "✅ Successfully upgraded selected packages:"
+    echo "$selected_pkgs"
+  else
+    echo "❌ Error occurred during upgrade!"
+    echo "Error details:"
+    echo "$output"
+    echo
+    echo "Partial upgrade output:"
+    echo "$selected_pkgs"
+  fi
 fi
+
+# Always wait for user input before exiting at the very end
+echo
+read -n 1 -s -r -p "Press any key to continue..."
+echo
