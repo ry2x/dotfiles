@@ -36,8 +36,10 @@ function scan_networks() {
     sleep 1
 }
 
-# Get current connection status - use cached info for speed
-current_connection=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d ':' -f 2)
+# Function to get current connection - only called when needed
+function get_current_connection() {
+    nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d ':' -f 2
+}
 
 # Prepare menu items
 menu_items="Available WiFi networks\nEnable WiFi\nDisable WiFi\nRescan networks"
@@ -70,6 +72,9 @@ case $action in
         if [ -n "$chosen_network" ]; then
             # Extract SSID
             ssid=$(echo "$chosen_network" | awk -F ':' '{print $1}')
+            
+            # Get current connection only when needed
+            current_connection=$(get_current_connection)
             
             # Check if already connected to this network
             if [ "$ssid" = "$current_connection" ]; then
