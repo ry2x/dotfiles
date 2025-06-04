@@ -6,7 +6,7 @@ upgradable_pkgs=$(yay -Qu | awk '{print $1}')
 fzf_options="(ALL) Upgrade all packages\n$upgradable_pkgs"
 
 # Let user select multiple with fzf, or choose to upgrade all
-selected_option=$(echo -e "$fzf_options" | fzf -m --prompt="️⚙️ Select packages to upgrade (or ALL): ex <package_name> <package_name> > ")
+selected_option=$(echo -e "$fzf_options" | fzf -m --prompt="️⚙️ Select packages to upgrade (or ALL):")
 
 # Trim leading/trailing whitespace (in case)
 selected_option=$(echo "$selected_option" | xargs)
