@@ -23,7 +23,7 @@
     "memory",
     "custom/seperator",
     "network",
-    //"custom/bluetooth-status",
+    "custom/bluetooth-status",
     "pulseaudio",
     "battery",
     "custom/seperator",
@@ -242,6 +242,7 @@
     "format": "<span font='Font Awesome 6 Free 10'>{}</span>",
     "exec": "~/.config/hypr/Scripts/bluetooth_status.sh",
     "tooltip": false,
+    "on-click": "pkill -x blueman-manager || blueman-manager",
     "interval": 2
   },
 
