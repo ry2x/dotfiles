@@ -1,11 +1,12 @@
+@import url('file://$HOME/.cache/wal/colors.css');
+
 window {
-  /* background-color: #171717; */
-  background: #0a0a0a;
+  background: @background;
 }
 
 * {
-  font-family: "Jetbrains Mono";
-  color: #fff;
+  font-family: 'JetBrains Mono';
+  color: @foreground;
 }
 
 #scroll {
@@ -13,8 +14,7 @@ window {
 }
 
 #input {
-  /* background-color: #262626; */
-  background-color: #171717;
+  background-color: @color0;
   outline: none;
   box-shadow: none;
   border: 0;
@@ -40,6 +40,6 @@ window {
 }
 
 #entry:selected {
-  background-color: #262626;
-  outline: none;
+  background-color: @color2;
+  outline: @color3 solid 1px;
 }
