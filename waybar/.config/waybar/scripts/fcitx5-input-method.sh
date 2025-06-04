@@ -21,4 +21,4 @@ case "$current_im" in
     ;;
 esac
 
-echo "{\"text\": \"$mode\", \"tooltip\": \"Input Method: $current_im\"}"
+echo "{\"text\": \"$mode\", \"tooltip\": \"Mode: $current_im\"}"
