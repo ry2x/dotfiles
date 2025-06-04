@@ -131,20 +131,23 @@
     "tooltip": false,
     "exec": "~/.config/waybar/scripts/pacman_get_update.sh",
     "on-click": "pkill -x wofi || wofi --show drun",
+    "on-click-right": "kitty -e ~/.config/waybar/scripts/pacman_u.sh",
     "interval": 600
   },
 
   // https://man.archlinux.org/man/extra/waybar/waybar-cpu.5.en
   "cpu": {
     "format": "<span font='Font Awesome 6 Free 10'>  </span>{usage}%",
-    "interval": 3
+    "interval": 3,
+    "on-click": "kitty -e btm"
   },
 
   "memory": {
     //{used}GiB
     "format": "<span font='Font Awesome 6 Free 10'>  </span>{percentage}%",
     "interval": 3,
-    "tooltip-format": " RAM {percentage}%\nAvail: {avail}GB of {total}GB\nSWAP: {swapUsed}GB of {swapTotal}GB"
+    "tooltip-format": " RAM {percentage}%\nAvail: {avail}GB of {total}GB\nSWAP: {swapUsed}GB of {swapTotal}GB",
+    "on-click": "kitty -e btm"
   },
 
   "temperature": {
@@ -191,12 +194,13 @@
     "tooltip-format": "{ipaddr} on {ifname}\nessid: {essid}, ({signalStrength}%)\n{bandwidthUpBits}    {bandwidthDownBits}",
     "format-linked": "<span font='Font Awesome 6 Free 10'>{icon}   </span>No IP",
     "format-disconnected": "<span font='Font Awesome 6 Free 10'>{icon}   </span>Disconnected",
-    "on-click": "pkill -x impala || foot -e --title=impala impala",
+    "on-click": "pkill -x wofi || ~/.local/bin/wofi-wifi",
     "format-icons": {
       "wifi": " ",
       "ethernet": "󰈀",
       "disconnected": " "
-    }
+    },
+    "interval": 3
   },
 
   "pulseaudio": {
