@@ -17,8 +17,6 @@
   "modules-center": ["hyprland/submap"],
   "modules-right": [
     "custom/seperator",
-    "tray",
-    "custom/seperator",
     "cpu",
     "memory",
     "custom/seperator",
@@ -26,6 +24,7 @@
     "custom/bluetooth-status",
     "pulseaudio",
     "battery",
+    "custom/input_method",
     "custom/seperator",
     "clock",
     "custom/swaync",
@@ -107,9 +106,12 @@
     },
     "modules": [
       "custom/expander",
-      "custom/power",
+      "custom/seperator",
+      "tray",
+      "custom/seperator",
       "power-profiles-daemon",
-      "custom/pacman-updates"
+      "custom/power"
+      //"custom/pacman-updates"
     ]
   },
   "tray": {
@@ -119,15 +121,17 @@
 
   "clock": {
     /*"timezone": "America/x",*/
-    "interval": 1,
+    "interval": 300,
     "tooltip-format": "<big>{:%Y年 %m月 %d日\n%A}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "<span font='Fira Code SemiBold 9.5'>{:%y/%m/%d %a %R}</span>"
   },
 
   "custom/applications": {
-    "format": "<span font='Font Awesome 6 Free 10'> </span>",
+    "format": "<span font='Font Awesome 6 Free 10'>{}</span>",
     "tooltip": false,
-    "on-click": "pkill -x wofi || wofi -I -H 500 -W 500 --show drun"
+    "exec": "~/.config/waybar/scripts/pacman_get_update.sh",
+    "on-click": "pkill -x wofi || wofi --show drun",
+    "interval": 600
   },
 
   // https://man.archlinux.org/man/extra/waybar/waybar-cpu.5.en
@@ -227,7 +231,7 @@
   "custom/pacman-updates": {
     "format": "   {}",
     "exec": "yay -Qu | wc -l",
-    "on-click": "kitty -e ~/.config/hypr/Scripts/pacman_u.sh",
+    "on-click": "kitty -e ~/.config/waybar/scripts/pacman_u.sh",
     "tooltip": true,
     "tooltip-format": "Updates available: {}\nClick to open update manager",
     "interval": 600
@@ -239,11 +243,12 @@
   },
 
   "custom/bluetooth-status": {
-    "format": "<span font='Font Awesome 6 Free 10'>{}</span>",
-    "exec": "~/.config/hypr/Scripts/bluetooth_status.sh",
-    "tooltip": false,
-    "on-click": "pkill -x blueman-manager || blueman-manager",
-    "interval": 2
+    "format": "  ", // Font Awesome Bluetooth アイコン（U+F293）
+    "tooltip": true,
+    "tooltip-format": "{}",
+    "interval": 5,
+    "exec": "~/.config/waybar/scripts/bluetooth_status.sh",
+    "on-click": "pkill -x blueman-manager || blueman-manager"
   },
 
   "custom/wifi-status": {
@@ -259,5 +264,13 @@
     "on-click": "swaync-client -t",
     "tooltip": false,
     "interval": 2
+  },
+
+  "custom/input_method": {
+    "exec": "~/.config/waybar/scripts/fcitx5-input-method.sh",
+    "interval": 1,
+    "return-type": "json",
+    "on-click": "pkill -x fcitx5-configtool || fcitx5-configtool",
+    "on-click-right": "fcitx5-remote -t"
   }
 }
