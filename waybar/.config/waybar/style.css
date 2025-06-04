@@ -168,6 +168,12 @@ button:hover {
     border-radius: 6px;*/
 }
 
+#custom-input_method {
+  margin-top: 2px;
+  padding-right: 5px;
+}
+
+#custom-input_method:hover,
 #window:hover,
 #custom-applications:hover,
 #network:hover,
