@@ -1,0 +1,112 @@
+#!/bin/bash
+
+# Script to manage WiFi connections using wofi
+# This script allows users to:
+# - View available networks
+# - Connect to networks
+# - Disconnect from current network
+
+# Check if necessary tools are installed
+if ! command -v wofi &> /dev/null; then
+    notify-send "Error" "wofi is not installed"
+    exit 1
+fi
+
+if ! command -v nmcli &> /dev/null; then
+    notify-send "Error" "NetworkManager is not installed"
+    exit 1
+fi
+
+# Function to display notification
+function show_notification() {
+    notify-send "WiFi" "$1"
+}
+
+# Show loading indication in wofi
+function show_loading() {
+    echo "Loading..." | wofi --dmenu --prompt="$1" --width=300 --height=100 &
+    WOFI_PID=$!
+    sleep 0.5
+    kill $WOFI_PID 2>/dev/null
+}
+
+# Function to scan networks
+function scan_networks() {
+    nmcli device wifi rescan &>/dev/null
+    sleep 1
+}
+
+# Get current connection status - use cached info for speed
+current_connection=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d ':' -f 2)
+
+# Prepare menu items
+menu_items="Available WiFi networks\nEnable WiFi\nDisable WiFi\nRescan networks"
+
+# Use a cache for wofi
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+mkdir -p "$XDG_CACHE_HOME/wofi"
+
+# Actions menu with optimized wofi settings for faster loading
+action=$(echo -e "$menu_items" | wofi -p "Wifi Menu" --show dmenu -i --cache-file="$XDG_CACHE_HOME/wofi/wifi-menu" --no-actions)
+
+case $action in
+    "Available WiFi networks")
+        # Now scan networks only after user selects this option
+        show_loading "Scanning networks..."
+        scan_networks
+        
+        # Get list of available networks with a timeout to prevent hanging
+        wifi_list=$(timeout 5 nmcli --fields SSID,BARS,SECURITY dev wifi list | tail -n +2 | sed 's/  */:/g')
+        
+        # Check if we got any networks
+        if [ -z "$wifi_list" ]; then
+            show_notification "No networks found or scan timed out"
+            exit 1
+        fi
+        
+        # Show networks in wofi with optimized settings
+        chosen_network=$(echo "$wifi_list" | wofi --dmenu --insensitive --prompt="Select WiFi Network" --width=400 --height=400 --cache-file="$XDG_CACHE_HOME/wofi/wifi-networks" --no-actions)
+        
+        if [ -n "$chosen_network" ]; then
+            # Extract SSID
+            ssid=$(echo "$chosen_network" | awk -F ':' '{print $1}')
+            
+            # Check if already connected to this network
+            if [ "$ssid" = "$current_connection" ]; then
+                show_notification "Already connected to $ssid"
+                exit 0
+            fi
+            
+            # Check if network requires password
+            security=$(echo "$chosen_network" | awk -F ':' '{print $3}')
+            
+            if [[ "$security" == "" || "$security" == "--" ]]; then
+                # Connect without password
+                show_notification "Connecting to $ssid..."
+                nmcli dev wifi connect "$ssid" && show_notification "Connected to $ssid" || show_notification "Failed to connect to $ssid"
+            else
+                # Prompt for password with optimized settings
+                password=$(wofi --dmenu --prompt="Enter password for $ssid" --password --width=300 --cache-file="$XDG_CACHE_HOME/wofi/wifi-password" --no-actions)
+                
+                if [ -n "$password" ]; then
+                    # Connect with password
+                    show_notification "Connecting to $ssid..."
+                    nmcli dev wifi connect "$ssid" password "$password" && show_notification "Connected to $ssid" || show_notification "Failed to connect to $ssid"
+                fi
+            fi
+        fi
+        ;;
+    "Enable WiFi")
+        nmcli radio wifi on && show_notification "WiFi enabled"
+        ;;
+    "Disable WiFi")
+        nmcli radio wifi off && show_notification "WiFi disabled"
+        ;;
+    "Rescan networks")
+        show_notification "Rescanning networks..."
+        scan_networks
+        show_notification "Network scan complete"
+        # Re-run the script to show fresh results
+        exec "$0"
+        ;;
+esac
