@@ -1,7 +1,7 @@
 @import url('file://$HOME/.cache/wal/colors.css');
 
 window {
-  background: @background;
+  background: #0a0a0a;
 }
 
 * {
