@@ -1,6 +1,5 @@
 #!/bin/bash
 
 exec /usr/bin/code \
-  --enable-wayland-ime \
-  --enable-features=UseOzonePlatform \
-  --ozone-platform=wayland "$@"
+  --ozone-platform-hint=auto \ 
+  --enable-features=WaylandWindowDecorations "$@"
