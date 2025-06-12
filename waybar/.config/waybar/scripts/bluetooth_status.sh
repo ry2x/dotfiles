@@ -36,9 +36,9 @@ if [[ -n "$connected_devices" ]]; then
       else
         battery_icon=""
       fi
-      tooltip+="$status_icon $name: $battery% $battery_icon\n"
+      tooltip+="$status_icon   $name: $battery% $battery_icon\n"
     else
-      tooltip+="$status_icon $name:\n"
+      tooltip+="$status_icon   $name:\n"
     fi
   done
 fi
