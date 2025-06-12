@@ -43,3 +43,21 @@ My wallapers are not in this repo. To access all my of wallpapers, check out my 
 ## star-history
 
 [![Star History Chart](https://api.star-history.com/svg?repos=maxhu08/dotfiles&type=Date)](https://star-history.com/#maxhu08/dotfiles&Date)
+
+## About Japanese Input
+
+If you want to use Japanese input, I recommend using `fcitx5` with `mozc`.
+
+`fcitx5`'s environment variable is under `env/.config/enviroment.d/envvars.conf`. This is needed to use `fcitx5` with `mozc` in the terminal.
+
+You can use `/bin/.local/bin/` `code,discord,1password` with `fcitx5` through the terminal.
+
+> [!CAUTION]
+>
+> May not work with launched by wofi-launcher, you may need to fix `.desktop` files which is located in `/usr/share/applications/`.
+>
+> Example: `code.desktop` should have
+>
+> `code --enable-wayland-ime --enable-features=UseOzonePlatform --ozone-platform=wayland %F`
+>
+> instead of `Exec=code %F`.
