@@ -1,11 +1,11 @@
 #!/bin/bash
 
-count=$(yay -Qu | wc -l)
+count=$(paru -Qu | wc -l)
 
 if [ "$count" -eq 0 ]; then
-  message=" "
+  message=""
 else
-  message=" "
+  message="  "
 fi
 
 echo "$message"
