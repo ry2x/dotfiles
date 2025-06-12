@@ -2,7 +2,7 @@
 
 # Get list of upgradable packages
 # Add an "ALL" option to the list for upgrading all packages
-upgradable_pkgs=$(yay -Qu | awk '{print $1}')
+upgradable_pkgs=$(paru -Qu | awk '{print $1}')
 fzf_options="(ALL) Upgrade all packages\n$upgradable_pkgs"
 
 # Let user select multiple with fzf, or choose to upgrade all
@@ -18,8 +18,8 @@ fi
 
 if [[ "$selected_option" == *"(ALL) Upgrade all packages"* ]]; then
   echo "Upgrading all available packages."
-  # Run yay upgrade all and capture output and exit status
-  output=$(yay -Syu --noconfirm 2>&1)
+  # Run paru upgrade all and capture output and exit status
+  output=$(paru -Syu --noconfirm 2>&1)
   status=$?
 
   echo
@@ -42,8 +42,8 @@ else
   echo "Upgrading the following packages:"
   echo "$selected_pkgs"
 
-  # Run yay upgrade and capture output and exit status
-  output=$(yay -S --noconfirm $selected_pkgs 2>&1)
+  # Run paru upgrade and capture output and exit status
+  output=$(paru -S $selected_pkgs 2>&1)
   status=$?
 
   echo
