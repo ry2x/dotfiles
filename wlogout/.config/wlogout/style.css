@@ -15,11 +15,14 @@ button {
   background-size: 20%;
   background-color: alpha(@background, 0);
   border-radius: 50px; /* Increased border radius for a more rounded look */
+  border: 2px solid alpha(@color4, 0.5); /* Adding a subtle border with pywal color4 */
+  transition: all 0.2s ease; /* Smooth transition for all properties */
+  box-shadow: 0 0 0 0 transparent; /* Initial state for box-shadow */
 }
 
 button:focus {
   background-size: 25%;
-  border: 0px;
+  border: 2px solid @color5; /* Focus border with color5 from pywal */
 }
 
 button:hover {
@@ -28,6 +31,9 @@ button:hover {
   background-size: 40%;
   margin: 5px;
   border-radius: 50px;
+  border: 2px solid @color6; /* Border color matches the background on hover */
+  box-shadow: 0 0 15px 5px alpha(@color6, 0.8), 0 0 30px 8px alpha(@color6, 0.4); /* Double glow for more intense pillow effect */
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smoother easing for the effect */
 }
 
 /* Adjust the size of the icon or content inside the button */
