@@ -1,36 +1,36 @@
 {
     "label" : "lock",
     "action" : "hyprlock",
-    "text" : "Lock",
+    "text" : "Lock (L)",
     "keybind" : "l"
 }
 {
     "label" : "reboot",
     "action" : "systemctl reboot",
-    "text" : "Reboot",
+    "text" : "Reboot (R)",
     "keybind" : "r"
 }
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
-    "text" : "Shutdown",
-    "keybind" : "s"
+    "text" : "Shutdown (U)",
+    "keybind" : "u"
 }
 {
     "label" : "logout",
     "action" : "loginctl kill-session $XDG_SESSION_ID",
-    "text" : "Logout",
+    "text" : "Logout (E)",
     "keybind" : "e"
 }
 {
     "label" : "suspend",
     "action" : "systemctl suspend",
-    "text" : "Suspend",
-    "keybind" : "u"
+    "text" : "Suspend (S)",
+    "keybind" : "s"
 }
 {
     "label" : "hibernate",
     "action" : "systemctl hibernate",
-    "text" : "Hibernate",
+    "text" : "Hibernate (H)",
     "keybind" : "h"
 }
