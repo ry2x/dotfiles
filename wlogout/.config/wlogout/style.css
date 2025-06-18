@@ -5,15 +5,15 @@
 window {
   font-family: Fira Code Medium;
   font-size: 16pt;
-  color: #cdd6f4; /* text */
-  background-color: rgba(30, 30, 46, 0.6);
+  color: @foreground; /* text */
+  background-color: alpha(@background, 0.6);
 }
 
 button {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20%;
-  background-color: rgba(200, 220, 255, 0);
+  background-color: alpha(@background, 0);
   border-radius: 50px; /* Increased border radius for a more rounded look */
 }
 
@@ -23,8 +23,8 @@ button:focus {
 }
 
 button:hover {
-  background-color: rgb(145, 215, 227);
-  color: #1e1e2e;
+  background-color: @color6; /* Use a nice highlight color */
+  color: @background;
   background-size: 40%;
   margin: 5px;
   border-radius: 50px;
