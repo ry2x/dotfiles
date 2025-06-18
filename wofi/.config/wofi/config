@@ -1,7 +1,7 @@
 show=drun
 width=40%
 height=50%
-prompt=Search...
+prompt=  Search...
 normal_window=true
 location=center
 gtk-dark=true
