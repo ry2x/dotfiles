@@ -127,9 +127,9 @@
   },
 
   "custom/applications": {
-    "format": "<span font='Font Awesome 6 Free 10'>{}</span>",
+    "format": "<span font='Font Awesome 6 Free 10'> </span>",
     "tooltip": false,
-    "exec": "~/.config/waybar/scripts/pacman_get_update.sh",
+    //"exec": "~/.config/waybar/scripts/pacman_get_update.sh",
     "on-click": "pkill -x wofi || wofi --show drun",
     "on-click-right": "kitty -e ~/.config/waybar/scripts/pacman_u.sh",
     "interval": 600
