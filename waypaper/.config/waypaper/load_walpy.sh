@@ -5,5 +5,5 @@ WALLPAPER="${WALLPAPER/#\~/$HOME}"
 if [[ -f "$WALLPAPER" ]]; then
   wal -i "$WALLPAPER"
 else
-  echo "[!] Invalid wallpaper path: $WALLPAPER"
+  notify-send "waypaper" "[!] Invalid wallpaper path: $WALLPAPER"
 fi
