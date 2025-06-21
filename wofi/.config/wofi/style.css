@@ -38,8 +38,3 @@ window {
 #entry {
   border-radius: 0.5rem;
 }
-
-#entry:selected {
-  background-color: @color2;
-  outline: @color3 solid 1px;
-}
