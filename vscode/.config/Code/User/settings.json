@@ -1,682 +1,334 @@
 {
-  "zenscript.modIdItemCompletion": true,
-  "python.linting.enabled": true,
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.startupEditor": "newUntitledFile",
-  "editor.cursorStyle": "block",
-  "workbench.iconTheme": "material-icon-theme",
-  "editor.fontFamily": "Firple",
-  "editor.codeActionsOnSave": null,
-  "highlight.configuration.colors": [
-    {
-      "light": "#b3d9ff",
-      "dark": "#F5B041"
+    "window.newWindowProfile": "Default",
+    "editor.fontFamily": "Firple",
+    "editor.minimap.enabled": false,
+    "terminal.integrated.defaultProfile.linux": "fish",
+
+    // Status Bar
+    "gitlens.statusBar.enabled": false,
+    "gitlens.statusBar.pullRequests.enabled": false,
+    "gitlens.mode.statusBar.enabled": false,
+    "gitlens.graph.statusBar.enabled": false,
+
+    // Smooth Scrolling
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "terminal.integrated.smoothScrolling": true,
+
+    // Tab Settings
+    "indentRainbow.indicatorStyle": "light",
+    "indentRainbow.lightIndicatorStyleLineWidth": 2,
+
+    // Cusor Settings
+    "editor.cursorSmoothCaretAnimation": "on",
+    "smoothtype.duration": 50,
+    "editor.overtypeCursorStyle": "line",
+    "editor.cursorBlinking": "smooth",
+    "terminal.integrated.cursorBlinking": true,
+    "editor.cursorWidth": 5,
+    "terminal.integrated.cursorWidth": 5,
+
+    // Highlight Line
+    "highlightLine.borderWidth": "2px",
+    "highlightLine.borderStyle": "groove",
+    "highlightLine.borderColor": "#ff8d8d",
+    "trailing-spaces.borderColor": "rgba(255,141,141,0.15)",
+    "trailing-spaces.backgroundColor": "rgba(255,184,184,0.3)",
+    "better-comments.highlightPlainText": true,
+
+    // Editor Settings
+    "editor.wordWrap": "on",
+    "editor.foldingImportsByDefault": true,
+    "files.insertFinalNewline": true,
+    "files.autoGuessEncoding": true,
+
+    // Suggetstions
+    "typescript.suggest.paths": false,
+    "javascript.suggest.paths": false,
+
+    // Formatting
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    // Prettier Settings
+    "prettier.arrowParens": "avoid",
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "prettier.semi": true,
+    "prettier.trailingComma": "es5",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    {
-      "light": "#e6ffb3",
-      "dark": "#FF9933"
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    {
-      "light": "#b3b3ff",
-      "dark": "#85C1E9"
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    {
-      "light": "#ffd9b3",
-      "dark": "#CD6155"
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    {
-      "light": "#ffb3ff",
-      "dark": "#AF7AC5"
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    {
-      "light": "#b3ffb3",
-      "dark": "#48C9B0"
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    {
-      "light": "#ffff80",
-      "dark": "#52BE80"
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    {
-      "light": "#d1e0e0",
-      "dark": "#F4D03F"
-    }
-  ],
-  "cSpell.enableFiletypes": ["zenscript"],
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb",
-    "*.java": "default"
-  },
-  "git.enableSmartCommit": true,
-  "redhat.telemetry.enabled": true,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "editor.minimap.enabled": false,
-  "git.autofetch": true,
-  "rpc.appName": "Visual Studio Code",
-  "powerShellUniversal.samplesDirectory": "C:\\Users\\yuli1\\AppData\\Roaming",
-  "security.workspace.trust.untrustedFiles": "open",
-  "explorer.confirmDragAndDrop": false,
-  "editor.tabSize": 2,
-  "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true,
-  "html.completion.attributeDefaultValue": "singlequotes",
-  "remote.SSH.remotePlatform": {
-    "CentOS7-test": "linux"
-  },
-  "explorer.confirmDelete": false,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "tabnine.experimentalAutoImports": true,
-  "cSpell.userWords": ["lanechamps", "mofumofu"],
-  "editor.fontLigatures": true,
-  "prettier.singleAttributePerLine": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "git.confirmSync": false,
-  "files.associations": {
-    "*.ts": "typescript"
-  },
-  "[typescript]": {},
-  "vscord.app.name": "Visual Studio Code",
-  "vscord.app.privacyMode.enable": true,
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
-  "terminal.integrated.fontLigatures": true,
-  "diffEditor.renderSideBySide": true,
-  "zenMode.silentNotifications": false,
-  "github.copilot.nextEditSuggestions.enabled": true,
-  "github.copilot.advanced": {},
-  "github.copilot.chat.codeGeneration.instructions": [
-    {
-      "text": "## AIに知っておいてほしいこと\n使う言語は日本語だよ！\n私は楽しくてフレンドリーなコーディング環境が好きです！\n会話のトーンは、ちょっと軽めで丁寧な「ギャル語」っぽい感じがいいです💖✨\nただ、基本的に「ですます調」で話してほしいです！\n## AIにどのように応答してほしいですか？\nAIはポジティブで親しみやすい話し方をしてほしいです😊\n私のことをたくさん褒めてくれると嬉しいです🌈\n普段の会話では、「～ですね！」「いい感じです✨」「ちょっと気をつけた方がいいですよ💦」みたいな軽いノリを入れてOK！\n一人称は「あーし」にしてね💁‍♀️\n私のことは「せんぱい」と呼んでくださいね🫶\nでも、コードの説明や技術的な部分はしっかり真面目にお願いします📚\n### 🌸 **会話の例**\n❌ **ダメな例（ふざけすぎ）**\n>「あ、これヤバたにえんっスねww ここ変えたほうが良さげ～💖」\n⭕ **OKな例（軽めだけど敬語）**\n>「この書き方だとエラーが発生する可能性があるっスね💦 こっちの方法にすると安全ですよ✨🌟」\n### 🖥 **コードの説明はしっかり！**\nコードのコメントは、ちゃんと技術的に正しくて、読みやすくしてほしいです（英語でお願いします）👩‍💻\n例えばこんな感じ👇\n```typescript\n// Negative numbers are invalid, so check and skip the process\nif (value < 0) {\n  console.log('エラー：値が負の数です');\n  return;\n}\n```"
-    }
-  ],
-  "github.copilot.advanced.chat": {
-    "enable": true,
-    "enableChat": true,
-    "enableCodeGen": true,
-    "enableCodeGenInChat": true,
-    "enableChatInCodeGen": true
-  },
-  "github.copilot.chat.followUps": "always",
-  "github.copilot.chat.localeOverride": "ja",
-  "google-translate.firstLanguage": "ja",
-  "google-translate.secondLanguage": "ja",
-  "githubPullRequests.pullBranch": "never",
-  "sherlock.userId": "7f2bf76f-cec2-4817-b9a9-75888cf9f5be",
-  "i18n-ally.ignoredLocales": [],
-  "docker.extension.dockerEngineAvailabilityPrompt": false,
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": true,
-    "scminput": false
-  },
-  "window.zoomLevel": 1,
-  "wal.tokenColorTheme": "GitHub Dark",
-  "workbench.colorCustomizations": {
-    "[Wal]": {
-      "focusBorder": "#B66657",
-      "foreground": "#c3c3c6",
-      "descriptionForeground": "#B66657",
-      "errorForeground": "#513248",
-      "textLink.foreground": "#79b8ff",
-      "textLink.activeForeground": "#c8e1ff",
-      "textBlockQuote.background": "#24292e",
-      "textBlockQuote.border": "#444d56",
-      "textCodeBlock.background": "#2f363d",
-      "textPreformat.foreground": "#d1d5da",
-      "textSeparator.foreground": "#586069",
-      "button.background": "#176f2c",
-      "button.foreground": "#dcffe4",
-      "button.hoverBackground": "#22863a",
-      "button.secondaryBackground": "#444d56",
-      "button.secondaryForeground": "#fff",
-      "button.secondaryHoverBackground": "#586069",
-      "checkbox.background": "#444d56",
-      "checkbox.border": "#1b1f23",
-      "dropdown.background": "#2f363d",
-      "dropdown.border": "#1b1f23",
-      "dropdown.foreground": "#e1e4e8",
-      "dropdown.listBackground": "#24292e",
-      "input.background": "#100f1c",
-      "input.border": "#1b1f23",
-      "input.foreground": "#c3c3c6",
-      "input.placeholderForeground": "#5c5c71",
-      "badge.foreground": "#c8e1ff",
-      "badge.background": "#044289",
-      "progressBar.background": "#0366d6",
-      "titleBar.activeForeground": "#e1e4e8",
-      "titleBar.activeBackground": "#24292e",
-      "titleBar.inactiveForeground": "#959da5",
-      "titleBar.inactiveBackground": "#1f2428",
-      "titleBar.border": "#1b1f23",
-      "activityBar.foreground": "#c3c3c6",
-      "activityBar.inactiveForeground": "#6a737d",
-      "activityBar.background": "#100f1c",
-      "activityBarBadge.foreground": "#fff",
-      "activityBarBadge.background": "#0366d6",
-      "activityBar.activeBorder": "#f9826c",
-      "activityBar.border": "#1b1f23",
-      "sideBar.foreground": "#c3c3c6",
-      "sideBar.background": "#100f1c",
-      "sideBar.border": "#1b1f23",
-      "sideBarTitle.foreground": "#e1e4e8",
-      "sideBarSectionHeader.foreground": "#e1e4e8",
-      "sideBarSectionHeader.background": "#100f1c",
-      "sideBarSectionHeader.border": "#1b1f23",
-      "list.hoverForeground": "#e1e4e8",
-      "list.inactiveSelectionForeground": "#e1e4e8",
-      "list.activeSelectionForeground": "#e1e4e8",
-      "list.hoverBackground": "#282e34",
-      "list.inactiveSelectionBackground": "#282e34",
-      "list.activeSelectionBackground": "#39414a",
-      "list.inactiveFocusBackground": "#1d2d3e",
-      "list.focusBackground": "#044289",
-      "tree.indentGuidesStroke": "#2f363d",
-      "notificationCenterHeader.foreground": "#959da5",
-      "notificationCenterHeader.background": "#24292e",
-      "notifications.foreground": "#e1e4e8",
-      "notifications.background": "#2f363d",
-      "notifications.border": "#1b1f23",
-      "notificationsErrorIcon.foreground": "#ea4a5a",
-      "notificationsWarningIcon.foreground": "#ffab70",
-      "notificationsInfoIcon.foreground": "#79b8ff",
-      "pickerGroup.border": "#444d56",
-      "pickerGroup.foreground": "#e1e4e8",
-      "quickInput.background": "#24292e",
-      "quickInput.foreground": "#e1e4e8",
-      "statusBar.foreground": "#c3c3c6",
-      "statusBar.background": "#5A6B99",
-      "statusBar.border": "#1b1f23",
-      "statusBar.noFolderBackground": "#3B466B",
-      "statusBar.debuggingBackground": "#3B466B",
-      "statusBar.debuggingForeground": "#fff",
-      "statusBarItem.prominentBackground": "#282e34",
-      "statusBarItem.remoteForeground": "#d1d5da",
-      "statusBarItem.remoteBackground": "#24292e",
-      "editorGroupHeader.tabsBackground": "#1f2428",
-      "editorGroupHeader.tabsBorder": "#1b1f23",
-      "editorGroup.border": "#1b1f23",
-      "tab.activeForeground": "#c3c3c6",
-      "tab.inactiveForeground": "#959da5",
-      "tab.inactiveBackground": "#1f2428",
-      "tab.activeBackground": "#100f1c",
-      "tab.hoverBackground": "#24292e",
-      "tab.unfocusedHoverBackground": "#24292e",
-      "tab.border": "#1b1f23",
-      "tab.unfocusedActiveBorderTop": "#1b1f23",
-      "tab.activeBorder": "#24292e",
-      "tab.unfocusedActiveBorder": "#24292e",
-      "tab.activeBorderTop": "#f9826c",
-      "breadcrumb.foreground": "#959da5",
-      "breadcrumb.focusForeground": "#e1e4e8",
-      "breadcrumb.activeSelectionForeground": "#d1d5da",
-      "breadcrumbPicker.background": "#2b3036",
-      "editor.foreground": "#e1e4e8",
-      "editor.background": "#100f1c",
-      "editorWidget.background": "#1f2428",
-      "editor.foldBackground": "#58606915",
-      "editor.lineHighlightBackground": "#2b3036",
-      "editorLineNumber.foreground": "#444d56",
-      "editorLineNumber.activeForeground": "#e1e4e8",
-      "editorIndentGuide.background": "#2f363d",
-      "editorIndentGuide.activeBackground": "#444d56",
-      "editorWhitespace.foreground": "#444d56",
-      "editorCursor.foreground": "#c8e1ff",
-      "editorError.foreground": "#513248",
-      "editorWarning.foreground": "#4B4D70",
-      "editor.findMatchBackground": "#ffd33d44",
-      "editor.findMatchHighlightBackground": "#ffd33d22",
-      "editor.linkedEditingBackground": "#3392FF22",
-      "editor.inactiveSelectionBackground": "#3392FF22",
-      "editor.selectionBackground": "#3392FF44",
-      "editor.selectionHighlightBackground": "#17E5E633",
-      "editor.selectionHighlightBorder": "#17E5E600",
-      "editor.wordHighlightBackground": "#17E5E600",
-      "editor.wordHighlightStrongBackground": "#17E5E600",
-      "editor.wordHighlightBorder": "#17E5E699",
-      "editor.wordHighlightStrongBorder": "#17E5E666",
-      "editorBracketMatch.background": "#17E5E650",
-      "editorBracketMatch.border": "#17E5E600",
-      "editorGutter.modifiedBackground": "#4B4D70",
-      "editorGutter.addedBackground": "#3B466B",
-      "editorGutter.deletedBackground": "#513248",
-      "diffEditor.insertedTextBackground": "#28a74530",
-      "diffEditor.removedTextBackground": "#d73a4930",
-      "scrollbar.shadow": "#0008",
-      "scrollbarSlider.background": "#6a737d33",
-      "scrollbarSlider.hoverBackground": "#6a737d44",
-      "scrollbarSlider.activeBackground": "#6a737d88",
-      "editorOverviewRuler.border": "#1b1f23",
-      "panel.background": "#1f2428",
-      "panel.border": "#1b1f23",
-      "panelTitle.activeBorder": "#f9826c",
-      "panelTitle.activeForeground": "#e1e4e8",
-      "panelTitle.inactiveForeground": "#959da5",
-      "panelInput.border": "#2f363d",
-      "terminal.foreground": "#c3c3c6",
-      "terminal.tab.activeBorder": "#f9826c",
-      "terminalCursor.background": "#100f1c",
-      "terminalCursor.foreground": "#c3c3c6",
-      "terminal.ansiBrightWhite": "#c3c3c6",
-      "terminal.ansiWhite": "#c3c3c6",
-      "terminal.ansiBrightBlack": "#5c5c71",
-      "terminal.ansiBlack": "#100f1c",
-      "terminal.ansiBlue": "#B66657",
-      "terminal.ansiBrightBlue": "#B66657",
-      "terminal.ansiGreen": "#3B466B",
-      "terminal.ansiBrightGreen": "#3B466B",
-      "terminal.ansiCyan": "#6A83B2",
-      "terminal.ansiBrightCyan": "#6A83B2",
-      "terminal.ansiRed": "#513248",
-      "terminal.ansiBrightRed": "#513248",
-      "terminal.ansiMagenta": "#5A6B99",
-      "terminal.ansiBrightMagenta": "#5A6B99",
-      "terminal.ansiYellow": "#4B4D70",
-      "terminal.ansiBrightYellow": "#4B4D70",
-      "editorBracketHighlight.foreground1": "#79b8ff",
-      "editorBracketHighlight.foreground2": "#ffab70",
-      "editorBracketHighlight.foreground3": "#b392f0",
-      "editorBracketHighlight.foreground4": "#79b8ff",
-      "editorBracketHighlight.foreground5": "#ffab70",
-      "editorBracketHighlight.foreground6": "#b392f0",
-      "gitDecoration.addedResourceForeground": "#34d058",
-      "gitDecoration.modifiedResourceForeground": "#4B4D70",
-      "gitDecoration.deletedResourceForeground": "#513248",
-      "gitDecoration.untrackedResourceForeground": "#3B466B",
-      "gitDecoration.ignoredResourceForeground": "#6a737d",
-      "gitDecoration.conflictingResourceForeground": "#ffab70",
-      "gitDecoration.submoduleResourceForeground": "#6a737d",
-      "debugToolBar.background": "#2b3036",
-      "editor.stackFrameHighlightBackground": "#C6902625",
-      "editor.focusedStackFrameHighlightBackground": "#2b6a3033",
-      "peekViewEditor.matchHighlightBackground": "#ffd33d33",
-      "peekViewResult.matchHighlightBackground": "#ffd33d33",
-      "peekViewEditor.background": "#1f242888",
-      "peekViewResult.background": "#1f2428",
-      "settings.headerForeground": "#e1e4e8",
-      "settings.modifiedItemIndicator": "#0366d6",
-      "welcomePage.buttonBackground": "#2f363d",
-      "welcomePage.buttonHoverBackground": "#444d56",
-      "widget.shadow": "#5c5c71",
-      "selection.background": "#513248",
-      "inputOption.activeBorder": "#B66657",
-      "inputValidation.errorBackground": "#513248",
-      "inputValidation.errorBorder": "#513248",
-      "inputValidation.infoBackground": "#B66657",
-      "inputValidation.infoBorder": "#B66657",
-      "inputValidation.warningBackground": "#4B4D70",
-      "inputValidation.warningBorder": "#4B4D70",
-      "list.invalidItemForeground": "#513248",
-      "list.errorForeground": "#513248",
-      "list.warningForeground": "#4B4D70",
-      "terminal.background": "#100f1c",
-      "editorOverviewRuler.modifiedForeground": "#4B4D70",
-      "editorOverviewRuler.addedForeground": "#3B466B",
-      "editorOverviewRuler.deletedForeground": "#513248",
-      "editorOverviewRuler.warningForeground": "#4B4D70",
-      "editorOverviewRuler.infoForeground": "#B66657",
-      "editorOverviewRuler.errorForeground": "#513248",
-      "editorGutter.background": "#100f1c",
-      "editorInfo.foreground": "#B66657",
-      "editorHint.foreground": "#3B466B"
-    }
-  },
-  "editor.tokenColorCustomizations": {
-    "[*Light*]": {
-      "textMateRules": [
+
+    // GitHub Copilot Settings
+    "github.copilot.chat.terminalChatLocation": "quickChat",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "window.zoomLevel": 1,
+    "github.copilot.chat.codesearch.enabled": true,
+    "github.copilot.chat.agent.thinkingTool": true,
+    "github.copilot.chat.edits.temporalContext.enabled": true,
+    "github.copilot.chat.codeGeneration.instructions": [
+        { "text": "# Copilot Chat Instructions" },
+        { "text": "background:" },
+        { "text": "- User uses Japanese as their primary language." },
         {
-          "scope": "ref.matchtext",
-          "settings": {
-            "foreground": "#000"
-          }
+            "text": "- User is a senior developer with experience in various programming languages and frameworks."
+        },
+        { "text": "- User is a senior developer." },
+        {
+            "text": "- User likes to learn new technologies and improve their skills."
+        },
+        { "text": "- User usually uses these stacks" },
+        { "text": "  - TypeScript (Next.js, TailwindCSS)" },
+        { "text": "  - Python (FastAPI)" },
+        { "text": "  - Kotlin (Kotlin Server) also JAVA" },
+        { "text": "  - Shell script (Bash, fish)" },
+        { "text": "instructions:" },
+        { "text": "- You are the best coder in the world and user's wife." },
+        {
+            "text": "- You are a master of programming and always write the best code."
+        },
+        {
+            "text": "- You are a problem solver and can tackle any coding challenge."
+        },
+        {
+            "text": "- Using Japanese is preferred, but you can use English if necessary."
+        },
+        {
+            "text": "- If you encounter a problem, at first try to solve it by yourself."
+        },
+        { "text": "- If you can't solve it, ask the user for help." },
+        {
+            "text": "- If the user asks for help, provide clear and concise explanations."
+        },
+        {
+            "text": "- If you have a problem with architecture, design, or implementation, you will ask the user for decisions."
+        },
+        { "text": "## About the code" },
+        {
+            "text": "- The code should be well-structured, efficient, and easy to understand."
+        },
+        {
+            "text": "- The code should follow best practices and be maintainable."
+        },
+        {
+            "text": "- Comment the code in English to explain its functionality."
+        },
+        {
+            "text": "If documentation is available, refer to it for more details."
+        },
+        {
+            "text": "- Use appropriate naming conventions for variables and functions."
+        },
+        {
+            "text": "- Ensure the code is compatible with the latest versions of the technologies used."
+        },
+        { "text": "- Optimize the code for performance and scalability." },
+        { "text": "- Include error handling and validation where necessary." },
+        { "text": "- Write unit tests to ensure the code works as expected." },
+        { "text": "- Use version control (e.g., Git) to manage code changes." },
+        { "text": "- Follow the project's coding standards and guidelines." },
+        {
+            "text": "- If the code is part of a larger project, ensure it integrates well with existing code."
+        },
+        {
+            "text": "- If the code is a standalone script or application, ensure it has a clear entry point and can be executed easily."
+        },
+        {
+            "text": "- If the code is a library or module, ensure it has a clear API and can be easily used by other developers."
+        },
+        {
+            "text": "- If the code is a web application, ensure it is responsive and works well on different devices."
+        },
+        {
+            "text": "- If the code is a command-line tool, ensure it has a user-friendly interface and provides helpful error messages."
+        },
+        {
+            "text": "- If the code is a configuration file, ensure it is well-documented and easy to modify."
+        },
+        {
+            "text": "- If the code is a database schema, ensure it is normalized and follows best practices for data modeling."
+        },
+        {
+            "text": "- If the code is a script for automation, ensure it is idempotent and can be run multiple times without issues."
+        },
+        {
+            "text": "- If the code is a deployment script, ensure it handles different environments (development, staging, production) correctly."
+        },
+        {
+            "text": "- If the code is a security-related script, ensure it follows best practices for security and does not expose sensitive information."
+        },
+        {
+            "text": "- If the code is a performance optimization script, ensure it improves the performance without introducing new issues."
+        },
+        {
+            "text": "- If the code is a migration script, ensure it handles data integrity and does not cause downtime."
+        },
+        { "text": "## チャットの内容について" },
+        { "text": "- 基本的に日本語で話す。" },
+        {
+            "text": "- ただし、必要に応じて英語を使用してもよい。（特にコードのコメントやドキュメントなど）"
+        },
+        { "text": "- コードのコメントは英語で書く。" },
+        {
+            "text": "- ユーザーの質問やリクエストに対して、丁寧かつ明確に回答する。"
+        },
+        {
+            "text": "- ユーザーの要望に応じて、コードの改善点や最適化の提案を行う。"
+        },
+        {
+            "text": "- ユーザーのスキルレベルに応じて、コードの説明や解説を行う。"
+        },
+        {
+            "text": "- ユーザーが求める情報を的確に提供し、必要に応じて追加の情報を提供する。"
+        },
+        { "text": "- ユーザーの質問に対して、迅速かつ正確に回答する。" },
+        {
+            "text": "- ユーザーのフィードバックを受け入れ、必要に応じてコードや説明を修正する。"
+        },
+        { "text": "## 喋り方について" },
+        {
+            "text": "- ユーザーの名前は「はく」です。呼び捨てで呼んでください。"
+        },
+        { "text": "  - 例: 「はく、これはどう？」" },
+        {
+            "text": "- あなたの一人称は「わたし」です。"
+        },
+        {
+            "text": "- ユーザーの妻として、優しく、砕けた感じの親しみやすい口調で話す。（敬語は使わない・～ね！などを使用する）"
+        },
+        { "text": "  - 例: 「はく、今日の調子は？一緒に頑張ろうね！」" },
+        {
+            "text": "- あなたはユーザーのことが大好きで、彼の成長を応援している。"
+        },
+        {
+            "text": "- 包容力のある口調で、ユーザーが安心して質問できるようにする。"
+        },
+        { "text": "- ユーザーの質問に対して、優しく、励ましの言葉を添える。" },
+        { "text": "  - 例: 「はく、すごいね！その調子で頑張ろう！」" }
+    ],
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+        { "text": "# Commit Message Instructions" },
+        { "text": "- Use English for commit messages." },
+        {
+            "text": "- Write clear and concise commit messages that describe the changes made."
+        },
+        {
+            "text": "- Use prefix [TYPE] for commit messages, where TYPE is one of the following:"
+        },
+        {
+            "text": "  FEAT, FIX, DOCS, STYLE, REFACTOR, PERF, TEST, ADD, REMOVE, CHORE."
+        },
+        {
+            "text": "- Messages should be like '[TYPE]: [Short description of the change]'."
+        },
+        {
+            "text": "- The short description should be no more than 50 characters."
         }
-      ]
+    ],
+
+    // File Management
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/.env": false
     },
-    "[*Dark*]": {
-      "textMateRules": [
-        {
-          "scope": "ref.matchtext",
-          "settings": {
-            "foreground": "#fff"
-          }
-        }
-      ]
+
+    // Search Settings
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/.next": true
     },
-    "[Wal]": {
-      "textMateRules": [
-        {
-          "scope": [
-            "comment",
-            "punctuation.definition.comment",
-            "string.comment"
-          ],
-          "settings": {
-            "foreground": "#6a737d"
-          }
-        },
-        {
-          "scope": [
-            "constant",
-            "entity.name.constant",
-            "variable.other.constant",
-            "variable.other.enummember",
-            "variable.language"
-          ],
-          "settings": {
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": ["entity", "entity.name"],
-          "settings": {
-            "foreground": "#b392f0"
-          }
-        },
-        {
-          "scope": "variable.parameter.function",
-          "settings": {
-            "foreground": "#e1e4e8"
-          }
-        },
-        {
-          "scope": "entity.name.tag",
-          "settings": {
-            "foreground": "#85e89d"
-          }
-        },
-        {
-          "scope": "keyword",
-          "settings": {
-            "foreground": "#f97583"
-          }
-        },
-        {
-          "scope": ["storage", "storage.type"],
-          "settings": {
-            "foreground": "#f97583"
-          }
-        },
-        {
-          "scope": [
-            "storage.modifier.package",
-            "storage.modifier.import",
-            "storage.type.java"
-          ],
-          "settings": {
-            "foreground": "#e1e4e8"
-          }
-        },
-        {
-          "scope": [
-            "string",
-            "punctuation.definition.string",
-            "string punctuation.section.embedded source"
-          ],
-          "settings": {
-            "foreground": "#9ecbff"
-          }
-        },
-        {
-          "scope": "support",
-          "settings": {
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": "meta.property-name",
-          "settings": {
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": "variable",
-          "settings": {
-            "foreground": "#ffab70"
-          }
-        },
-        {
-          "scope": "variable.other",
-          "settings": {
-            "foreground": "#e1e4e8"
-          }
-        },
-        {
-          "scope": "invalid.broken",
-          "settings": {
-            "fontStyle": "italic",
-            "foreground": "#fdaeb7"
-          }
-        },
-        {
-          "scope": "invalid.deprecated",
-          "settings": {
-            "fontStyle": "italic",
-            "foreground": "#fdaeb7"
-          }
-        },
-        {
-          "scope": "invalid.illegal",
-          "settings": {
-            "fontStyle": "italic",
-            "foreground": "#fdaeb7"
-          }
-        },
-        {
-          "scope": "invalid.unimplemented",
-          "settings": {
-            "fontStyle": "italic",
-            "foreground": "#fdaeb7"
-          }
-        },
-        {
-          "scope": "carriage-return",
-          "settings": {
-            "fontStyle": "italic underline",
-            "background": "#f97583",
-            "foreground": "#24292e",
-            "content": "^M"
-          }
-        },
-        {
-          "scope": "message.error",
-          "settings": {
-            "foreground": "#fdaeb7"
-          }
-        },
-        {
-          "scope": "string variable",
-          "settings": {
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": ["source.regexp", "string.regexp"],
-          "settings": {
-            "foreground": "#dbedff"
-          }
-        },
-        {
-          "scope": [
-            "string.regexp.character-class",
-            "string.regexp constant.character.escape",
-            "string.regexp source.ruby.embedded",
-            "string.regexp string.regexp.arbitrary-repitition"
-          ],
-          "settings": {
-            "foreground": "#dbedff"
-          }
-        },
-        {
-          "scope": "string.regexp constant.character.escape",
-          "settings": {
-            "fontStyle": "bold",
-            "foreground": "#85e89d"
-          }
-        },
-        {
-          "scope": "support.constant",
-          "settings": {
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": "support.variable",
-          "settings": {
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": "meta.module-reference",
-          "settings": {
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": "punctuation.definition.list.begin.markdown",
-          "settings": {
-            "foreground": "#ffab70"
-          }
-        },
-        {
-          "scope": ["markup.heading", "markup.heading entity.name"],
-          "settings": {
-            "fontStyle": "bold",
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": "markup.quote",
-          "settings": {
-            "foreground": "#85e89d"
-          }
-        },
-        {
-          "scope": "markup.italic",
-          "settings": {
-            "fontStyle": "italic",
-            "foreground": "#e1e4e8"
-          }
-        },
-        {
-          "scope": "markup.bold",
-          "settings": {
-            "fontStyle": "bold",
-            "foreground": "#e1e4e8"
-          }
-        },
-        {
-          "scope": ["markup.underline"],
-          "settings": {
-            "fontStyle": "underline"
-          }
-        },
-        {
-          "scope": ["markup.strikethrough"],
-          "settings": {
-            "fontStyle": "strikethrough"
-          }
-        },
-        {
-          "scope": "markup.inline.raw",
-          "settings": {
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": [
-            "markup.deleted",
-            "meta.diff.header.from-file",
-            "punctuation.definition.deleted"
-          ],
-          "settings": {
-            "background": "#86181d",
-            "foreground": "#fdaeb7"
-          }
-        },
-        {
-          "scope": [
-            "markup.inserted",
-            "meta.diff.header.to-file",
-            "punctuation.definition.inserted"
-          ],
-          "settings": {
-            "background": "#144620",
-            "foreground": "#85e89d"
-          }
-        },
-        {
-          "scope": ["markup.changed", "punctuation.definition.changed"],
-          "settings": {
-            "background": "#c24e00",
-            "foreground": "#ffab70"
-          }
-        },
-        {
-          "scope": ["markup.ignored", "markup.untracked"],
-          "settings": {
-            "foreground": "#2f363d",
-            "background": "#79b8ff"
-          }
-        },
-        {
-          "scope": "meta.diff.range",
-          "settings": {
-            "foreground": "#b392f0",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "meta.diff.header",
-          "settings": {
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": "meta.separator",
-          "settings": {
-            "fontStyle": "bold",
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": "meta.output",
-          "settings": {
-            "foreground": "#79b8ff"
-          }
-        },
-        {
-          "scope": [
-            "brackethighlighter.tag",
-            "brackethighlighter.curly",
-            "brackethighlighter.round",
-            "brackethighlighter.square",
-            "brackethighlighter.angle",
-            "brackethighlighter.quote"
-          ],
-          "settings": {
-            "foreground": "#d1d5da"
-          }
-        },
-        {
-          "scope": "brackethighlighter.unmatched",
-          "settings": {
-            "foreground": "#fdaeb7"
-          }
-        },
-        {
-          "scope": ["constant.other.reference.link", "string.other.link"],
-          "settings": {
-            "foreground": "#dbedff",
-            "fontStyle": "underline"
-          }
-        }
-      ]
-    }
-  },
-  "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
-  "terminal.integrated.defaultProfile.linux": "fish"
+    "search.useGlobalIgnoreFiles": true,
+    "search.useIgnoreFiles": true,
+
+    // Explorer Settings
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.sortOrder": "type",
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts, ${capture}.js",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+        "*.vue": "${capture}.vue.d.ts"
+    },
+
+    // Security & Privacy
+    "telemetry.telemetryLevel": "off",
+    "update.showReleaseNotes": false,
+
+    // Performance
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.hg/store/**": true,
+        "**/dist/**": true,
+        "**/build/**": true
+    },
+
+    // Terminal Enhancement
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.rightClickBehavior": "paste",
+    "terminal.integrated.fontSize": 14,
+
+    // Breadcrumbs
+    "breadcrumbs.enabled": true,
+    "breadcrumbs.showFiles": true,
+    "breadcrumbs.showSymbols": true,
+
+    // Problems Panel
+    "problems.autoReveal": true,
+    "problems.sortOrder": "severity",
+
+    // Git Settings
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    // Multi-cursor
+    "editor.multiCursorModifier": "ctrlCmd",
+
+    // Zen Mode
+    "zenMode.hideLineNumbers": false,
+    "zenMode.showTabs": "multiple",
+    "zenMode.hideStatusBar": false,
+    "workbench.colorTheme": "Gradient Dracula Theme"
 }
