@@ -214,12 +214,12 @@ truncate_name() {
 }
 
 # 各カラムの最大幅を設定
-COL_WIDTH=25
+COL_WIDTH=34
 
 # Create header with side-by-side view
 header=$(
     echo -e "${GREEN}======== アップデート可能なパッケージ ========${NC}"
-    echo -e "${YELLOW}Official (pacman)${NC} [${pacman_count}]    |    ${YELLOW}AUR (paru)${NC} [${paru_count}]"
+    echo -e "${YELLOW}Official (pacman)${NC} [${pacman_count}]             |    ${YELLOW}AUR (paru)${NC} [${paru_count}]"
     echo -e "----------------------------------|----------------------------------"
 
     # Process and format each list for side-by-side display with fixed width
