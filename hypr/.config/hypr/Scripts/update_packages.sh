@@ -25,7 +25,7 @@ list_paru_updates() {
         echo "[ERROR] paru is not installed. Please install paru first." >&2
         exit 1
     fi
-    
+
     # paru -Qua shows only AUR packages
     local result=$(paru -Qua | cut -d' ' -f1)
     if [ -z "$result" ]; then
@@ -38,22 +38,22 @@ list_paru_updates() {
 # Function to select and update system packages with pacman
 update_pacman() {
     local packages=$(pacman -Qu | cut -d' ' -f1)
-    
+
     # No packages to update
     if [ -z "$packages" ]; then
         echo -e "${GREEN}[INFO]${NC} Official リポジトリはすべて最新だよ！"
         return
     fi
-    
+
     local selected_mode=$(echo -e "すべてアップデート\n個別に選択" | fzf --prompt="アップデート方法を選択してね > ")
-    
+
     if [ "$selected_mode" = "すべてアップデート" ]; then
         # Show all upgradable packages
         local all_packages=$(pacman -Qu)
         local package_count=$(echo "$all_packages" | wc -l)
-        
+
         echo -e "\n${YELLOW}[確認]${NC} 全部で ${GREEN}${package_count}個${NC} のパッケージをアップデートするよ："
-        
+
         # Show all packages
         echo -e "${GREEN}----------------------------------------${NC}"
         echo "$all_packages" | while read -r line; do
@@ -76,12 +76,12 @@ update_pacman() {
     elif [ "$selected_mode" = "個別に選択" ]; then
         local selected_packages_full=$(pacman -Qu | fzf --prompt="アップデートするパッケージを選んでね (TABでトグル、複数選択可) > " --multi --header="TAB: 選択・解除、Enter: 決定")
         local selected_packages=$(echo "$selected_packages_full" | cut -d' ' -f1)
-        
+
         if [ -n "$selected_packages" ]; then
             # Show selected packages
             echo -e "\n${YELLOW}[確認]${NC} 以下のパッケージをアップデートするよ："
             echo -e "${GREEN}----------------------------------------${NC}"
-            
+
             # Format and display version information
             echo "$selected_packages_full" | while read -r line; do
                 pkg_name=$(echo "$line" | cut -d' ' -f1)
@@ -90,7 +90,7 @@ update_pacman() {
                 echo -e " ${BLUE}$pkg_name${NC}: $old_ver -> ${GREEN}$new_ver${NC}"
             done
             echo -e "${GREEN}----------------------------------------${NC}"
-            
+
             # Confirmation prompt
             read -p "アップデートを実行する？ (y/n): " confirm
             if [[ $confirm =~ ^[Yy]$ ]]; then
@@ -119,14 +119,14 @@ update_paru() {
         echo -e "${GREEN}[INFO]${NC} AURパッケージはすべて最新だよ！"
         return
     fi
-    
+
     local selected_mode=$(echo -e "すべてアップデート\n個別に選択" | fzf --prompt="AURパッケージのアップデート方法を選択してね > ")
-    
+
     if [ "$selected_mode" = "すべてアップデート" ]; then
         # Show all upgradable packages
         local all_packages=$(paru -Qua)
         local package_count=$(echo "$all_packages" | wc -l)
-        
+
         echo -e "\n${YELLOW}[確認]${NC} 全部で ${GREEN}${package_count}個${NC} のAURパッケージをアップデートするよ："
 
         # Show all packages
@@ -152,7 +152,7 @@ update_paru() {
         # Get AUR package update information
         local selected_packages_full=$(paru -Qua | fzf --prompt="アップデートするAURパッケージを選んでね (TABでトグル、複数選択可) > " --multi --header="TAB: 選択・解除、Enter: 決定")
         local selected_packages=$(echo "$selected_packages_full" | cut -d' ' -f1)
-        
+
         if [ -n "$selected_packages" ]; then
             # Show selected packages
             echo -e "\n${YELLOW}[確認]${NC} 以下のAURパッケージをアップデートするよ："
@@ -232,7 +232,7 @@ header=$(
             left_col+="$line\n"
         fi
     done < <(echo "$pacman_updates" | head -15)
-    
+
     # AUR packages (right column)
     right_col=""
     while IFS= read -r line; do
@@ -242,7 +242,7 @@ header=$(
             right_col+="$line\n"
         fi
     done < <(echo "$paru_updates" | head -15)
-    
+
     # Combine columns
     paste <(echo -e "$left_col") <(echo -e "$right_col") -d "|" | column -t -s "|"
 
