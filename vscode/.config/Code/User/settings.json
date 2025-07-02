@@ -3,6 +3,9 @@
     "editor.fontFamily": "Firple",
     "editor.minimap.enabled": false,
     "terminal.integrated.defaultProfile.linux": "fish",
+    "workbench.colorTheme": "Gradient Dracula Theme",
+    "workbench.productIconTheme": "IntelliJ",
+    "workbench.iconTheme": "material-icon-theme",
 
     // Status Bar
     "gitlens.statusBar.enabled": false,
@@ -89,6 +92,7 @@
     "github.copilot.chat.codesearch.enabled": true,
     "github.copilot.chat.agent.thinkingTool": true,
     "github.copilot.chat.edits.temporalContext.enabled": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
     "github.copilot.chat.codeGeneration.instructions": [
         { "text": "# Copilot Chat Instructions" },
         { "text": "background:" },
@@ -329,6 +333,5 @@
     // Zen Mode
     "zenMode.hideLineNumbers": false,
     "zenMode.showTabs": "multiple",
-    "zenMode.hideStatusBar": false,
-    "workbench.colorTheme": "Gradient Dracula Theme"
+    "zenMode.hideStatusBar": false
 }
