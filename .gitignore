@@ -5,4 +5,5 @@ vscode/
 !vscode/.config/Code/User/settings.json
 !vscode/.config/Code/User/keybindings.json
 
-clipse/.config/clipse/clipboard_history.json
+**/clipboard_history.json
+**/tmp_files/
