@@ -11,7 +11,12 @@ NC='\033[0m' # No Color
 
 # Function to list upgradable official packages
 list_pacman_updates() {
-    pacman -Qu | cut -d' ' -f1 || echo "  なし！"
+    local result=$(pacman -Qu | cut -d' ' -f1)
+    if [ -z "$result" ]; then
+        echo "  なし！"
+    else
+        echo "$result"
+    fi
 }
 
 # Function to list upgradable AUR packages (exclude official packages)
@@ -22,7 +27,12 @@ list_paru_updates() {
     fi
     
     # paru -Qua shows only AUR packages
-    paru -Qua | cut -d' ' -f1 || echo "  なし！"
+    local result=$(paru -Qua | cut -d' ' -f1)
+    if [ -z "$result" ]; then
+        echo "  なし！"
+    else
+        echo "$result"
+    fi
 }
 
 # Function to select and update system packages with pacman
@@ -185,8 +195,26 @@ pacman_updates=$(list_pacman_updates)
 paru_updates=$(list_paru_updates)
 
 # Count number of upgradable packages
-pacman_count=$(echo "$pacman_updates" | grep -v "なし！" | wc -l || echo 0)
-paru_count=$(echo "$paru_updates" | grep -v "なし！" | wc -l || echo 0)
+pacman_count=$(echo "$pacman_updates" | grep -v "なし！" | wc -l)
+paru_count=$(echo "$paru_updates" | grep -v "なし！" | wc -l)
+
+# 0件の場合は0をセット
+if [ -z "$pacman_count" ]; then pacman_count=0; fi
+if [ -z "$paru_count" ]; then paru_count=0; fi
+
+# 長いパッケージ名を省略する関数
+truncate_name() {
+    local name="$1"
+    local max_length="$2"
+    if [ ${#name} -gt "$max_length" ]; then
+        echo "${name:0:$((max_length-3))}..."
+    else
+        echo "$name"
+    fi
+}
+
+# 各カラムの最大幅を設定
+COL_WIDTH=25
 
 # Create header with side-by-side view
 header=$(
@@ -194,8 +222,29 @@ header=$(
     echo -e "${YELLOW}Official (pacman)${NC} [${pacman_count}]    |    ${YELLOW}AUR (paru)${NC} [${paru_count}]"
     echo -e "----------------------------------|----------------------------------"
 
-    # Show only package names (up to 15 on each side)
-    paste <(echo "$pacman_updates" | head -15) <(echo "$paru_updates" | head -15) -d "|" | column -t -s "|"
+    # Process and format each list for side-by-side display with fixed width
+    # Official packages (left column)
+    left_col=""
+    while IFS= read -r line; do
+        if [ "$line" != "  なし！" ]; then
+            left_col+="$(truncate_name "$line" $COL_WIDTH)\n"
+        else
+            left_col+="$line\n"
+        fi
+    done < <(echo "$pacman_updates" | head -15)
+    
+    # AUR packages (right column)
+    right_col=""
+    while IFS= read -r line; do
+        if [ "$line" != "  なし！" ]; then
+            right_col+="$(truncate_name "$line" $COL_WIDTH)\n"
+        else
+            right_col+="$line\n"
+        fi
+    done < <(echo "$paru_updates" | head -15)
+    
+    # Combine columns
+    paste <(echo -e "$left_col") <(echo -e "$right_col") -d "|" | column -t -s "|"
 
     # Count any remaining packages that are not displayed
     total_hidden=$(( (pacman_count > 15 ? pacman_count - 15 : 0) + (paru_count > 15 ? paru_count - 15 : 0) ))
