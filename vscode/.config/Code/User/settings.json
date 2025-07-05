@@ -333,5 +333,6 @@
     // Zen Mode
     "zenMode.hideLineNumbers": false,
     "zenMode.showTabs": "multiple",
-    "zenMode.hideStatusBar": false
+    "zenMode.hideStatusBar": false,
+    "chat.editing.confirmEditRequestRemoval": false
 }
