@@ -9,6 +9,20 @@ YELLOW='\033[0;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
+# Function to update package databases
+update_package_databases() {
+    echo -e "${BLUE}[INFO]${NC} パッケージデータベースを更新するね！"
+    echo -e "${YELLOW}Official リポジトリ${NC}を更新中..."
+    sudo pacman -Sy &> /dev/null
+
+    if command -v paru &> /dev/null; then
+        echo -e "${YELLOW}AUR リポジトリ${NC}を更新中..."
+        paru -Sy &> /dev/null
+    fi
+
+    echo -e "${GREEN}[INFO]${NC} パッケージデータベースの更新が完了したよ！"
+}
+
 # Function to list upgradable official packages
 list_pacman_updates() {
     local result=$(pacman -Qu | cut -d' ' -f1)
@@ -190,6 +204,9 @@ update_paru() {
 TERM_WIDTH=$(tput cols)
 HALF_WIDTH=$(( TERM_WIDTH / 2 - 5 ))
 
+# Update package databases first
+update_package_databases
+
 # Collect upgradable packages
 pacman_updates=$(list_pacman_updates)
 paru_updates=$(list_paru_updates)
@@ -198,11 +215,11 @@ paru_updates=$(list_paru_updates)
 pacman_count=$(echo "$pacman_updates" | grep -v "なし！" | wc -l)
 paru_count=$(echo "$paru_updates" | grep -v "なし！" | wc -l)
 
-# 0件の場合は0をセット
+# If no updates are available, set counts to 0
 if [ -z "$pacman_count" ]; then pacman_count=0; fi
 if [ -z "$paru_count" ]; then paru_count=0; fi
 
-# 長いパッケージ名を省略する関数
+# Function to truncate package names for side-by-side display
 truncate_name() {
     local name="$1"
     local max_length="$2"
@@ -213,7 +230,7 @@ truncate_name() {
     fi
 }
 
-# 各カラムの最大幅を設定
+# Set column width for side-by-side display
 COL_WIDTH=25
 
 # Create header with side-by-side view
