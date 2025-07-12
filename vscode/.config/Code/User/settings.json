@@ -6,6 +6,7 @@
     "workbench.colorTheme": "Gradient Dracula Theme",
     "workbench.productIconTheme": "IntelliJ",
     "workbench.iconTheme": "material-icon-theme",
+    "extensions.ignoreRecommendations": true,
 
     // Status Bar
     "gitlens.statusBar.enabled": false,
@@ -79,6 +80,10 @@
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true
+    },
 
     // GitHub Copilot Settings
     "github.copilot.chat.terminalChatLocation": "quickChat",
@@ -93,6 +98,7 @@
     "github.copilot.chat.agent.thinkingTool": true,
     "github.copilot.chat.edits.temporalContext.enabled": true,
     "github.copilot.nextEditSuggestions.enabled": true,
+    "chat.editing.confirmEditRequestRemoval": false,
     "github.copilot.chat.codeGeneration.instructions": [
         { "text": "# Copilot Chat Instructions" },
         { "text": "background:" },
@@ -333,6 +339,5 @@
     // Zen Mode
     "zenMode.hideLineNumbers": false,
     "zenMode.showTabs": "multiple",
-    "zenMode.hideStatusBar": false,
-    "chat.editing.confirmEditRequestRemoval": false
+    "zenMode.hideStatusBar": false
 }
