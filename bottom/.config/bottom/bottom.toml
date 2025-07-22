@@ -55,7 +55,7 @@
 # Disable mouse clicks
 #disable_click = false
 # Show memory values in the processes widget as values by default
-#process_memory_as_value = false
+process_memory_as_value = true
 # Show tree mode by default in the processes widget.
 #tree = false
 # Shows an indicator in table widgets tracking where in the list you are.
